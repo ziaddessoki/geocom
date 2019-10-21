@@ -33,132 +33,146 @@ $(document).ready(function () {
 
 
 
-$("#startbutton").on("click", function () {
-    $(".row").hide();
-    startGame();
-    
-    var correctAns = 0;
-    var wrongAns = 0;
-    var unAns = 0;    
-    var set = 0;
-    var timer = 10;
-    var timerId;
-  
+    $("#startbutton").on("click", function restart() {
+        $(".row").hide();
+        $(".fResult").empty();
+        startGame();
 
-    function startGame() {
-        correctAns = 0;
-        wrongAns = 0;
-        unAns = 0;
-        set = 0;
-
-        $(".run").show();
-        $(".timer").show();
-        nextQuestion();
-        run();
-        
-    }
-    // to manipulate the Dom for question and the option
-    function nextQuestion() {
-        stop();
-        // var timing;
-        // timing =setInterval(click,1000);
-        var questionContent = Object.values(questions)[set];
-        $(".question").text(questionContent);
-        
-
-        var optionsContent = Object.values(options)[set];
-        $.each(optionsContent, function (index, key) {
-            var test = $("<h5>")
-            test.attr("class", "okay")
-            test.text(key);
-            $(".options").append(test);
-            
-        });
-        
-
-        
-        var number = set + 1
-        $(".result").text("Question "+number+ " of 5");
-        
-        if(set===Object.keys(questions).length) {
-            final();
-        }  
-          
-    }
+        var correctAns = 0;
+        var wrongAns = 0;
+        var unAns = 0;
+        var set = 0;
+        var timer = 10;
+        var timerId;
 
 
+        function startGame() {
+            correctAns = 0;
+            wrongAns = 0;
+            unAns = 0;
+            set = 0;
 
-    
-    
-
-    $(document).on("click", ".okay", function () {
-        set++;
-        stop()
-        console.log(this);
-        var currentAnswer = Object.values(answers)[set-1];
-        console.log(currentAnswer);
-        if ($(this).text() === currentAnswer) {
-            correctAns++;
-            $(".options").html("");
+            $(".run").show();
+            $(".timer").show();
             nextQuestion();
-            console.log(this);
-           
-            
-            
-
-
+            run();
 
         }
-        else if ($(this).text() !== currentAnswer) {
-            wrongAns++;
-            $(".options").html("");
-            nextQuestion();
-            
-            
+        // to manipulate the Dom for question and the option
+        function nextQuestion() {
 
-        }
-    })
-
-    function run() {
-        timer = 10;
-        clearInterval(timerId);
-        timerID = setInterval(decrement, 1000);
-      }
+            // var timing;
+            // timing =setInterval(click,1000);
+            var questionContent = Object.values(questions)[set];
+            $(".question").text(questionContent);
 
 
-      function decrement() {
-        timer--;
-        $(".timer").html("<h2>Remaining time: " + timer + "</h2>");
-        if (timer === 0) {
-            stop();
-            unAns++;
-            set++;
-            $(".options").html("");
-            nextQuestion()
-            alert("Time Up!");
+            var optionsContent = Object.values(options)[set];
+            $.each(optionsContent, function (index, key) {
+                var test = $("<h5>")
+                test.attr("class", "okay")
+                test.text(key);
+                $(".options").append(test);
+
+            });
+
+
+
+            var number = set + 1
+            $(".result").text("Question " + number + " of 5");
+
+            if (set === Object.keys(questions).length) {
+                final();
+                stop();
+                alert = function () {};
+                
             }
 
         }
-        
-      
-      
-      function stop() {
-        clearInterval(timerId);
-      } 
 
-    function final(){
-        $(".timer").hide();
-        $(".run").hide();
-        var finalResult = $("<p>");
-        finalResult.attr("class", "fresult");
-        $(".game").append(finalResult);
-        finalResult.append("<p>Right Answers: " + correctAns + "</p>");
-        finalResult.append("<p>Wrong Answers: " + wrongAns +"</p>");
-        finalResult.append("<p>Not Answered: " + unAns +"</p>");
-        finalResult.append("<button>Play Again!!</button>")
+
+
+
+
+
+        $(document).on("click", ".okay", function () {
+            set++;
+            run();
+            console.log(this);
+            var currentAnswer = Object.values(answers)[set - 1];
+            console.log(currentAnswer);
+            if ($(this).text() === currentAnswer) {
+                correctAns++;
+                $(".options").html("");
+                nextQuestion();
+                console.log(this);
+                // run()
+
+
+
+
+
+            }
+            else if ($(this).text() !== currentAnswer) {
+                wrongAns++;
+                $(".options").html("");
+                nextQuestion();
+                // run()
+
+
+            }
+
+        })
+        
+        function run() {
+            timer = 10;
+            clearInterval(timerId);
+            timerId = setInterval(decrement, 1000);
         }
 
-});
 
+        function decrement() {
+            timer--;
+            $(".timer").html("<h2>Remaining time: " + timer + "</h2>");
+            if (timer === 0) {
+                run();
+                unAns++;
+                set++;
+                $(".options").html("");
+                nextQuestion()
+                alert("Time Up!");
+            }
+
+        }
+
+
+        function stop() {
+            clearInterval(timerId);
+        }
+
+
+        function final() {
+            $(".timer").hide();
+            $(".run").hide();
+            var finalResult = $("<p>");
+            finalResult.attr("class", "fResult");
+            $(".game").append(finalResult);
+            finalResult.append("<p>Right Answers: " + correctAns + "</p>");
+            finalResult.append("<p>Wrong Answers: " + wrongAns + "</p>");
+            finalResult.append("<p>Not Answered: " + unAns + "</p>");
+            finalResult.append("<button class='spinner'>Play Again!!</button>")
+            $(document).on("click",".spinner", function(){
+                set= 0;
+                stop();
+                $(".fResult").hide();
+                $(".run").show();
+                restart();
+                
+            });
+        }
+
+    });
+
+    
 
 });

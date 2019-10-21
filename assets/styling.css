@@ -1,5 +1,7 @@
 body{
+ 
     background-image: url(../assets/images/abstract-background-abstract-oil-painting-abstract-painting-1629236.jpg);
+    font-family: 'Rajdhani', sans-serif;
 }
 
 h1{
@@ -8,6 +10,7 @@ h1{
     font-weight: bolder;
     margin: 20px auto;
     color: #9e877e;
+    font-weight: 700;
 }
 
 .game{
@@ -18,6 +21,7 @@ h1{
     margin: 60px auto;
     position: static;
     overflow-x: auto;
+    text-align: center;
 
    
 }
@@ -32,15 +36,51 @@ h1{
     margin: 100px auto 0 auto;
     display: table;
     align-items: center;
+    font-weight: 500;
+    
+}
+
+#startbutton{
+    color: #9e877e;
+    
 
 }
 
+.okay{
+    padding:10px auto;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.okay :hover{
+    background-color:#7B2D26;
+    color:white;
+}
+
+.question{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+
+
+
 .intro{
-    font-size: 35px;;
+    font-size: 30px;;
     text-align: center;
     padding: 10px auto;
     margin: 100px auto;
     overflow: auto;
+    font-weight: 400;
+    color: black;
     
 }
 
+
+.timer{
+    padding: 20px auto;
+    font-weight: 400;
+    font-size: 25px;
+
+}
