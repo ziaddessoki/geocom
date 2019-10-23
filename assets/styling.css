@@ -47,14 +47,23 @@ h1{
 }
 
 .okay{
-    padding:10px auto;
+    padding:10px 40px;
     font-size: 25px;
     font-weight: 300;
+    margin:0 140px;
+    /* width: 200px; */
+
+    border-radius: 30px;
+    /* text-align: center;
+    align-items: center; */
 }
 
-.okay :hover{
+h5:hover{
     background-color:#7B2D26;
     color:white;
+    font-weight: 800px;
+    
+    
 }
 
 .question{

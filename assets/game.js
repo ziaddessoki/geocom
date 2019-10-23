@@ -156,15 +156,15 @@ $(document).ready(function () {
             $(".run").hide();
             var finalResult = $("<p>");
             finalResult.attr("class", "fResult");
-            $(".game").append(finalResult);
             finalResult.append("<p>Right Answers: " + correctAns + "</p>");
             finalResult.append("<p>Wrong Answers: " + wrongAns + "</p>");
             finalResult.append("<p>Not Answered: " + unAns + "</p>");
             finalResult.append("<button class='spinner'>Play Again!!</button>")
+            $(".final-result").append(finalResult);
             $(document).on("click",".spinner", function(){
                 set= 0;
                 stop();
-                $(".fResult").hide();
+                $(".final-result").empty();
                 $(".run").show();
                 restart();
                 
