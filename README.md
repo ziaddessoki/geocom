@@ -1,7 +1,7 @@
-# geocom
 
 
-Totally Trivial Trivia!!!
+
+# Totally Trivial Trivia!!!
 
 # Link To Deployed Heroku Site:
 https://ziaddessoki.github.io/geocom/
