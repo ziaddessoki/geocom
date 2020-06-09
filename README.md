@@ -12,11 +12,11 @@ https://ziaddessoki.github.io/geocom/
 - Check out our score
 - Play Again
 
-<!-- 
+
 <br/><strong>Start Game</strong><br/> ![Login](./assets/Customize.png)
 <br/><strong>Questions</strong> <br/> ![Login](./assets/burgerSummary.png) 
 
-<br/><strong>Score</strong> <br/> ![Login](./assets/orderSummary.png) -->
+<br/><strong>Score</strong> <br/> ![Login](./assets/orderSummary.png)
 
 
 
