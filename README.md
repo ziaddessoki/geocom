@@ -14,7 +14,7 @@ https://ziaddessoki.github.io/geocom/
 
 
 <br/><strong>Start Game</strong><br/> ![Login](./assets/images/start.png)
-<br/><strong>Questions</strong> <br/> ![Login](./assets/burgerSummary.png) 
+<br/><strong>Questions</strong> <br/> ![Login](./assets/images/questions.gif) 
 
 <br/><strong>Score</strong> <br/> ![Login](./assets/images/score.png)
 
